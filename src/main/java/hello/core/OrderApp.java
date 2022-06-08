@@ -16,7 +16,7 @@ public class OrderApp {
 //        AppConfig config = new AppConfig();
 //        MemberService memberService = config.memberService();
 //        OrderService orderService = config.orderService();
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
         OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
 
