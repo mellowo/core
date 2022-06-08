@@ -29,4 +29,3 @@ public class MemberServiceTest {
         Assertions.assertThat(member).isEqualTo(findMember);
     }
 }
-중
