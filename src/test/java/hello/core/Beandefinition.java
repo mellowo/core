@@ -15,10 +15,8 @@ public class Beandefinition {
         String[] beanDefinitionNames = ac.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);
-
             if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
                 System.out.println("beanDefinitionName = " + beanDefinitionName + "beanDefinition = " + beanDefinition);
-
             }
         }
     }
