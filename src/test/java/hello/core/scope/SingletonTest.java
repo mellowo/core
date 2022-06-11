@@ -13,6 +13,7 @@ public class SingletonTest {
 
     @Test
     public void singletonBeanFind(){
+        //매개변수로 들어가는 class가 설정정보가 됨 (@Configuration 안넣어줘도 적용)
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SingletonBean.class);
 
         SingletonBean singletonBean1 = ac.getBean(SingletonBean.class);
