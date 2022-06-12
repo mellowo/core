@@ -56,7 +56,7 @@ public class SingletonWithPrototypeTest1 {
 
     @Configuration
     @Scope("singleton")
-    static class ClientBean{
+    static class    ClientBean{
         private final PrototypeBean prototypeBean;
 
         @Autowired
