@@ -1,12 +1,13 @@
 package hello.core.singleton;
-
 import hello.core.AppConfig;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
+import hello.core.member.MemoryMemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContextExtensionsKt;
 
@@ -15,8 +16,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SingletonTest {
 
     @Test
+    @DisplayName("싱글톤 객체 임의로 생성 해보기 ")
+    void createSingletonObject(){
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        System.out.println(memberService);
+
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        MemberService bean = ac.getBean(MemberService.class);
+        MemberService memberService1 = new MemberServiceImpl(new MemoryMemberRepository());
+
+        System.out.println("bean = " + bean);
+        System.out.println("memberService1 = " + memberService1);
+
+    }
+
+    @Test
     @DisplayName("스프링 없는 순수한 DI 컨테이너")
     void pureContainer() {
+
         AppConfig config = new AppConfig();
 
         MemberService memberService1 = config.memberService();
