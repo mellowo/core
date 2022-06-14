@@ -19,8 +19,11 @@ public class TwoBeanOneTypeTest {
         TestService bean = ac.getBean(TestService.class);
 //        Map<String, TestInterface> testInterfaceMap = (Map<String, TestInterface>) bean;
 //        System.out.println("testInterfaceMap = " + testInterfaceMap);
-        bean.targetBeanSeach("test1");
-        bean.targetBeanSeach("test2");
+        TestService test1 = bean.targetBeanSeach("test1");
+        TestService test2 = bean.targetBeanSeach("test2");
+
+        System.out.println("test1 = " + test1);
+        System.out.println("test2 = " + test2);
 
     }
 
@@ -33,8 +36,9 @@ public class TwoBeanOneTypeTest {
             this.testInterfaceMap = testInterface;
         }
 
-        void targetBeanSeach(String beanname){
+        TestService targetBeanSeach(String beanname){
             System.out.println(testInterfaceMap.get(beanname));
+            return (TestService) testInterfaceMap.get(beanname);
         }
     }
 }
