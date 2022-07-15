@@ -1,9 +1,14 @@
 package hello.core.studyreview;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
+
+@Scope("singleton")
 @Component
 public class UseBeanImpl implements UseBean {
 
@@ -19,4 +24,14 @@ public class UseBeanImpl implements UseBean {
         System.out.println("UseBeanImpl.use1");
     }
 
+
+    @PostConstruct
+    void init() {
+        System.out.println("UseBeanImpl.init");
+    }
+
+    @PreDestroy
+    void destroy() {
+        System.out.println("UseBeanImpl.destroy");
+    }
 }
