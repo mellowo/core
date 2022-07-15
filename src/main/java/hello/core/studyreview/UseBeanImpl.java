@@ -24,6 +24,11 @@ public class UseBeanImpl implements UseBean {
         System.out.println("UseBeanImpl.use1");
     }
 
+    @Override
+    public int addCount() {
+        return beanTest.addCount();
+    }
+
 
     @PostConstruct
     void init() {

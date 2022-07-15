@@ -12,6 +12,13 @@ import javax.annotation.PreDestroy;
 @Component
 public class BeanTestImpl implements BeanTest {
 
+    private int count;
+
+
+    public int addCount() {
+        return ++count;
+    }
+
     @Override
     public void impl1() {
         System.out.println("BeanTestImpl.impl1");
@@ -29,6 +36,6 @@ public class BeanTestImpl implements BeanTest {
 
     @PreDestroy
     void destroy() {
-        System.out.println("BeanTestImpl.destory");
+        System.out.println("BeanTestImpl.destroy");
     }
 }

@@ -4,4 +4,5 @@ public interface UseBean {
 
     void use1();
 
+    int addCount();
 }

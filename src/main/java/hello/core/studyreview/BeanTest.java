@@ -5,4 +5,6 @@ public interface BeanTest {
     void impl1();
 
     void impl2();
+
+    int addCount();
 }
